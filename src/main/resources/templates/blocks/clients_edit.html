@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Редактирование анкеты</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+
+</head>
+<body>
+<header th:insert="blocks/header :: header"> </header>
+
+
+<div class="container mt-5 mb-5">
+    <h1>Редактирование анкеты</h1>
+    <div th:each="elem : ${clients}">
+    <form method="post">
+        <input type="text" th:value="${elem.surname}" name="surname" placeholder="Введите фамилию клиента" class="form-control"><br>
+        <input type="text" th:value="${elem.name}" name="name" placeholder="Введите имя клиента" class="form-control"><br>
+        <input type="text" th:value="${elem.sec_surname}" name="sec_surname" placeholder="Введите отчество клиента" class="form-control"><br>
+        <input type="text" th:value="${elem.birth_date}" name="birth_date" placeholder="Дата рождения" class="form-control"><br>
+
+        <h2>Паспортные данные</h2>
+        <input type="text" th:value="${elem.passport_ser}"  name="passport_ser" placeholder="Серия паспорта" class="form-control"><br>
+        <input type="text" th:value="${elem.passport_num}" name="passport_num" placeholder="Номер паспорта" class="form-control"><br>
+        <input type="text" th:value="${elem.by_who}" name="by_who" placeholder="Место выдачи паспорта" class="form-control"><br>
+        <input type="text" th:value="${elem.issue_date}" name="issue_date" placeholder="Дата выдачи" class="form-control"><br>
+        <input type="text" th:value="${elem.ident_num}" name="ident_num" placeholder="Идентификационный номер" class="form-control"><br>
+
+        <h3>Контактная информация</h3>
+        <input type="text" th:value="${elem.birth_place}" name="birth_place" placeholder="Место рождения" class="form-control"><br>
+        <input type="text" th:value="${elem.city}" name="city" placeholder="Город" class="form-control"><br>
+        <input type="text" th:value="${elem.address}" name="address" placeholder="Адрес" class="form-control"><br>
+        <input type="text" th:value="${elem.tel}" name="tel" placeholder="Номер телефона" class="form-control"><br>
+        <input type="text" th:value="${elem.email}" name="email" placeholder="Email@" class="form-control"><br>
+        <input type="text" th:value="${elem.work_place}" name="work_place" placeholder="Место работы" class="form-control"><br>
+        <input type="text" th:value="${elem.position}" name="position" placeholder="Должность" class="form-control"><br>
+
+        <h4>Дополнительная информация</h4>
+        <input type="text" th:value="${elem.fam_status}" name="fam_status" placeholder="Женат/замужем" class="form-control"><br>
+        <input type="text" th:value="${elem.citizenship}" name="citizenship" placeholder="Гражданство" class="form-control"><br>
+        <input type="text" th:value="${elem.disability}" name="disability" placeholder="Инвалидность" class="form-control"><br>
+        <input type="checkbox" th:value="${elem.pensioner}" name="pensioner"><label>Пенсионер</label><br>
+        <input type="text" th:value="${elem.month_inc}" name="month_inc" placeholder="Ежемесячный доход" class="form-control"><br>
+        <input type="checkbox" th:value="${elem.military}" name="military"><label>Военнообязанный</label><br>
+
+        <button type="submit" class="btn btn-success">Обновить</button>
+    </form>
+    <div th:each="elem : ${clients}" class="alert alert-info mt-2">
+        <!--               <h3 th:text="${elem.address}"/>-->
+
+    </div>
+
+</div>
+<footer th:insert="blocks/footer :: footer"> </footer>
+</div>
+</body>
+</html>
