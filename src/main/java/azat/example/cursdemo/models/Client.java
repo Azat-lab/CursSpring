@@ -1,21 +1,14 @@
 package azat.example.cursdemo.models;
 
-import lombok.AllArgsConstructor;
-
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 @Entity
 @Table(name = "clients")
-public class Clients {
+public class Client {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -48,12 +41,5 @@ public class Clients {
     private LocalDate birth_date;
     private LocalDate issue_date;
 
-    public Clients(String address, Integer month_inc, String name, String surname,
-                   String sec_surname, String passport_ser, String passport_num,
-                   String by_who, String ident_num, String birth_place, String city,
-                   Integer city_id, String tel, String email, String work_place,
-                   String position, String fam_status, Integer fs_id, String residence,
-                   Integer residence_id, String disability, Integer disability_id,
-                   boolean pensioner, boolean duty_bound, LocalDate birth_date, LocalDate issue_date) {
-    }
+
 }
